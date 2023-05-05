@@ -166,3 +166,7 @@ class Dev(Configuration):
 
     CELERY_RESULT_BACKEND = "django-db"
     CELERY_BROKER_URL = "redis://localhost:6379/0"          # CELERY prefix defined in celery.py
+
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    ADMINS = [("Elya", "elya_321@mail.ru")]
+
