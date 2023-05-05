@@ -2,3 +2,6 @@ requests
 Django==4.1.7
 django-configurations==2.4.1
 PyGithub
+celery
+django-celery-results
+redis
