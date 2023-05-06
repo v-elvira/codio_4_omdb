@@ -1,0 +1,26 @@
+_________________________
+export DJANGO_OMDB_KEY= (key from https://www.omdbapi.com/apikey.aspx)
+-------------------------
+
+Github key: Add to Profile in db in admin !
+
+# when being in project folder codio_omdb (not app folder and not anywhere else) (env activated, DJANGO_OMDB_KEY exported):
+____________________________________
+celery -A codio_omdb worker -l DEBUG
+------------------------------------  
+
+(for periodic tasks (celery beat)) only run tasks that have been scheduled by calling the add_periodic_task()
+__________________________________
+celery -A codio_omdb beat -l DEBUG
+----------------------------------
+
+
+If we want Celery beat to read the schedule from the Django database (or a different schedule store) we need to use the --scheduler argument. 
+To use django-celery-beat we’ll specify the scheduler django_celery_beat.schedulers:DatabaseScheduler
+_____________________________________________________________________________________________
+celery -A codio_omdb beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
+----------------------------------------------------------------------------------------------
+
+Celery beat doesn’t actually execute the tasks, instead it triggers the task (adds them to the task queue) for a Celery worker to run. 
+Therefore, a Celery worker needs to be started in a new terminal (in the usual way) to perform the execution.
+

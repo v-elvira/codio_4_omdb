@@ -5,3 +5,4 @@ PyGithub
 celery
 django-celery-results
 redis
+django-celery-beat==2.5.0
