@@ -57,14 +57,7 @@ class Dev(Configuration):
         'movies',
         'gh',
         'django_celery_results',
-        # 'django-celery-beat',  # error if installed in pip(ok) and than added here:
-
-#         File "/home/elya/.local/lib/python3.8/site-packages/django/__init__.py", line 24, in setup
-#     apps.populate(settings.INSTALLED_APPS)
-#   File "/home/elya/.local/lib/python3.8/site-packages/django/apps/registry.py", line 83, in populate
-#     raise RuntimeError("populate() isn't reentrant")
-# RuntimeError: populate() isn't reentrant
-
+        'django_celery_beat',# not 'django-celery-beat',
     ]
 
     MIDDLEWARE = [
